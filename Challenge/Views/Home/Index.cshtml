@@ -1,0 +1,55 @@
+﻿
+
+<div class="jumbotron">
+    <h1>Websites Healthcheck</h1>
+    <p class="lead">Coloque seus sites aqui e saiba se eles estão funcionando normalmente.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="@ViewData["Avatar"]" />
+        <div style="display:inline-block">
+            <h4>@ViewData["Username"]</h4>
+            <h5>@ViewData["Uuid"]</h5>
+        </div>
+        
+    </div>
+    <div class="col-md-4">
+        <form method="post" enctype="application/x-www-form-urlencoded" action="/Home/AddWebsite">
+            <div class="form-group">
+                <label for="url">Website URL: </label>
+                <input type="text" class="form-control" aria-describedby="url" name="url" placeholder="https://example.com">
+            </div>
+            <button type="submit" class="btn btn-primary">Adicionar Website</button>
+        </form>
+    </div>
+    
+
+</div>
+<hr />
+    <div class="row">
+        <div class="col-md-4">
+            <h4>@(ViewData["Website1"] ?? "https://example.com/")</h4>
+            <h2>@(ViewData["Website1Status"] ?? "OK")</h2>
+        </div>
+        <div class="col-md-4">
+            <h4>@(ViewData["Website2"] ?? "https://example.com/")</h4>
+            <h2>@(ViewData["Website2Status"] ?? "OK")</h2>
+        </div>
+        <div class="col-md-4">
+            <h4>@(ViewData["Website3"] ?? "https://example.com")</h4>
+            <h2>@(ViewData["Website3Status"] ?? "OK")</h2>
+        </div>
+    </div>
+
+
+<style>
+    form{
+        width: 250px;
+        margin: auto;
+    }
+    img{
+        width:250px
+    }
+    
+</style>

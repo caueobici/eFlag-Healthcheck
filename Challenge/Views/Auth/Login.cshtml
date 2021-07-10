@@ -1,0 +1,52 @@
+﻿
+<div class="page-wrapper bg-dark p-t-100 p-b-50">
+    <div class="wrapper wrapper--w900">
+        <div class="card card-6">
+            <div class="card-heading">
+                <h2 class="title">Login</h2>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="form-row">
+                        <div class="name">UUID</div>
+                        <div class="value">
+                            <input class="input--style-6" type="text" name="uuid" placeholder="uuid" id="uuid">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="name">Senha</div>
+                        <div class="value">
+                            <div class="input-group">
+                                <input class="input--style-6" type="password" name="password" placeholder="********">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn--radius-2 btn--blue-2" type="submit">Login</button>
+                        <p style="text-align: center;" id="info"></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Styles{
+    <link href="@Url.Content("~/Content/login.css")" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts{
+    <script>
+        window.onload = () => {
+            let params = new URLSearchParams(location.search);
+
+            if (params.get("uuid")) {
+                $("#uuid").val(params.get("uuid"));
+            }
+
+            if (params.get("info")) {
+                $("#info").text(params.get("info"));
+            }
+        }
+</script>
+}
